@@ -6,7 +6,7 @@ import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import Link from "next/link";
 
-const SearchBar = () => {
+const SearchBar = ({ placeholder }: { placeholder?: string }) => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -27,7 +27,7 @@ const SearchBar = () => {
       <div className="flex items-center md:border-2 rounded-full py-2 md:shadow-sm my-auto">
         <input
           type="text"
-          placeholder="Start your search"
+          placeholder={placeholder || "Start your search"}
           className="text-sm text-gray-600 placeholder-gray-400 flex-grow pl-5 bg-transparent outline-none"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
@@ -64,8 +64,17 @@ const SearchBar = () => {
               Cancel
             </button>
             <Link
-              href="/search"
+              href={{
+                pathname: "/search",
+                query: {
+                  location: searchInput,
+                  startDate: startDate.toISOString(),
+                  endDate: endDate.toISOString(),
+                  noOfGuests,
+                },
+              }}
               className="flex-grow items-center text-red-400 "
+              onClick={() => setSearchInput("")}
             >
               Search
             </Link>
