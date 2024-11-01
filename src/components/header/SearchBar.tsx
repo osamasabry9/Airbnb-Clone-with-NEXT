@@ -64,14 +64,18 @@ const SearchBar = ({ placeholder }: { placeholder?: string }) => {
               Cancel
             </button>
             <Link
+              // href={{
+              //   pathname: "/search",
+              //   query: {
+              //     location: searchInput,
+              //     startDate: startDate.toISOString(),
+              //     endDate: endDate.toISOString(),
+              //     noOfGuests,
+              //   },
+              // }}
               href={{
                 pathname: "/search",
-                query: {
-                  location: searchInput,
-                  startDate: startDate.toISOString(),
-                  endDate: endDate.toISOString(),
-                  noOfGuests,
-                },
+                search: `?location=${searchInput}&startDate=${startDate.toISOString()}&endDate=${endDate.toISOString()}&numOfGuests=${noOfGuests}`,
               }}
               className="flex-grow items-center text-red-400 "
               onClick={() => setSearchInput("")}
