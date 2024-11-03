@@ -1,5 +1,5 @@
 import React from "react";
-import { GlobeAltIcon, MenuIcon, UserCircleIcon } from "@heroicons/react/solid";
+import { GlobeAltIcon, Bars4Icon, UserCircleIcon }from '@heroicons/react/24/solid'
 
 const NavBar = () => {
   return (
@@ -10,7 +10,7 @@ const NavBar = () => {
       <GlobeAltIcon className="h-6 cursor-pointer" />
       <div className="flex space-x-2 border-2 p-2 rounded-full">
         <UserCircleIcon className="h-6 cursor-pointer" />
-        <MenuIcon className="h-6 cursor-pointer" />
+        <Bars4Icon className="h-6 cursor-pointer" />
       </div>
     </div>
   );
