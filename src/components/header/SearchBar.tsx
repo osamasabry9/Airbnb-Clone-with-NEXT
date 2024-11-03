@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { SearchIcon, UsersIcon } from "@heroicons/react/solid";
+import { MagnifyingGlassIcon, UsersIcon } from '@heroicons/react/24/solid'
 import { DateRangePicker, RangeKeyDict } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -32,7 +32,7 @@ const SearchBar = ({ placeholder }: { placeholder?: string }) => {
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <SearchIcon className="hidden md:inline-flex h-8  p-2  bg-red-400 rounded-full   text-white cursor-pointer md:mx-1" />
+        <MagnifyingGlassIcon className="hidden md:inline-flex h-8  p-2  bg-red-400 rounded-full   text-white cursor-pointer md:mx-1" />
       </div>
       {searchInput && (
         <div className="absolute left-[50%] translate-x-[-50%] top-[100%] bg-white flex flex-col p-4">
