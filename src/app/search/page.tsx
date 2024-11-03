@@ -14,10 +14,13 @@ type SearchParams = {
 };
 
 const SearchPage = async ({
-  searchParams: { location, startDate, endDate, numOfGuests },
+  searchParams,
 }: {
-  searchParams: SearchParams;
+  searchParams: Promise<SearchParams>;
 }) => {
+  const resolvedSearchParams = await searchParams;
+  const { location, startDate, endDate, numOfGuests } = resolvedSearchParams;
+
   let formatStartDate;
   let formatEndDate;
   if (startDate && endDate) {
